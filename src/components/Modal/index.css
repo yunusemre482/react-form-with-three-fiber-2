@@ -1,0 +1,79 @@
+.modal {
+  position: fixed;
+  inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #ccc;
+  transition: 1.1s ease-out;
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+  filter: blur(0);
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+
+  z-index: 999;
+  padding: 40px 20px 20px;
+}
+.modal.off {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  transform: scale(0.33);
+  box-shadow: 1rem 0 0 rgba(0, 0, 0, 0.2);
+}
+@supports (offset-rotation: 0deg) {
+  .modal.off {
+    offset-distance: 100%;
+  }
+}
+@media (prefers-reduced-motion) {
+  .modal {
+    offset-path: none;
+  }
+}
+.modal h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+.content {
+  background: #ddd;
+  padding: 3rem;
+  width: 80%;
+  font-size: 2rem;
+}
+.modal .actions {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: 1rem 3rem;
+  width: 80%;
+}
+.modal .actions .close-button {
+  border: 0;
+  background: red;
+  border-radius: 5px;
+  padding: 0.5rem 1.4rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin: auto;
+}
+
+.modal .actions .add-button {
+  border: 0;
+  background: green;
+  border-radius: 5px;
+  padding: 0.5rem 1.4rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: auto;
+  position: relative;
+  left: 50%;
+}
